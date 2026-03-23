@@ -1,0 +1,478 @@
+/* 
+-----------------------------------------------------
+Знать(желательно)
+-----------------------------------------------------
+margin - снаружи элемента, между элементами
+padding - внутри элемента, между контентом и границей
+max-width: 1100px; - 1100px как комфортная ширина, для 1920+ пикселей
+align-items: center; - выравнивает элементы по поперечной оси и ставит их по центру этой оси
+font-weight - жирность текста
+width - задаём ограничение по использованию ширины контейнера
+box-shadow - смещение по X, Y, размытие, цвет.
+transform - сдвиг по осям transformX или transformY или transformZ
+-----------------------------------------------------
+-----------------------------------------------------
+grid
+-----------------------------------------------------
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+repeat - повторяем такую колонку много раз
+max = 1fr — колонка может растягиваться, занимая доступное место поровну с другими колонками
+min = 260px — колонка не должна быть уже 260px
+-----------------------------------------------------
+-----------------------------------------------------
+попробую использовать инструмент Flexbox
+-----------------------------------------------------
+Flex Основные значения:
+row (по умолчанию) – элементы в строку, слева направо.
+column – элементы в колонку, сверху вниз.
+row-reverse – как row, но порядок визуально наоборот.
+column-reverse – как column, но снизу вверх.
+
+flex-grow: 1; – разрешаем элементу расти, занимая свободное место.
+flex-shrink: 1; – разрешаем немного сжиматься при нехватке места.
+flex-basis: 0; – базовый размер берём как 0, а дальше делим свободное пространство между такими элементами.
+
+flex: grow shirink basis;
+-----------------------------------------------------
+-----------------------------------------------------
+Псевдо классы: 
+-----------------------------------------------------
+:hover - это псевдокласс, который срабатывает, когда мышка находится над элементом (наводим курсор)
+:focus - псевдокласс, который срабатывает, когда мы кликаем на объект и остаёмся в нём
+-----------------------------------------------------
+-----------------------------------------------------
+border
+-----------------------------------------------------
+Стили линии
+
+border: 2px solid red;    сплошная линия
+border: 2px dashed red;   пунктир - - -
+border: 2px dotted red;   точки . . .
+border: 2px double red;   двойная линия
+border: 2px none;         без линии (убрать рамку)
+-----------------------------------------------------
+Стороны по отдельности
+Можно задавать рамку только с нужных сторон:
+
+border-top: 2px solid black;    только сверху
+border-right: 2px solid black;  только справа
+border-bottom: 2px solid black; только снизу
+border-left: 4px solid green;   только слева
+-----------------------------------------------------
+Все основные border-свойства
+
+Свойство	                         Что делает
+border	                         рамка со всех сторон
+border-top/right/bottom/left	 рамка с одной стороны
+border-width	                   только толщина
+border-style	            только стиль (solid, dashed…)
+border-color	                     только цвет
+border-radius	                  скругление углов
+border-collapse	       только для таблиц, убирает двойные линии
+-----------------------------------------------------
+-----------------------------------------------------
+числовые типы и значения
+-----------------------------------------------------
+px - пиксели, принято добовлять/вычетать по 4 px
+rem - 16px, считается от размера шрифта html
+vh - процент от ширины viewport; так картинка будет сжиматься на маленьких экранах
+-----------------------------------------------------
+*/
+
+* {
+    margin: 0; /* убираем внешние отступы */
+    padding: 0; /* убираем внутренние отступы */
+    box-sizing: border-box; /* определяем как считать ширину и высоту */
+}
+:root {
+    --text: black; /* задаём постоянную для текста */
+    --textmenucolor: rgb(3, 113, 121);
+    --textmenuhovercolor: rgb(10, 155, 252);
+    --bgmain: rgb(207, 253, 245);
+    --btn: rgb(121, 233, 196);
+    --bgbtn: rgb(31, 110, 93);
+    --bgbtnhover: rgba(31, 110, 93, 0.55);
+    --btnhover: rgb(200, 255, 237) ;
+    --bgcart: rgba(56, 223, 195, 0.35);
+
+    --font-base: 16px;      /* базовый размер текста */
+    --space-s: 0.5rem;      /* маленький отступ */
+    --space-m: 1rem;        /* средний отступ */
+    --space-l: 1.5rem;      /* большой отступ */
+}
+
+@media (min-width: 600px) {
+    .burger-btn {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        padding: 0px;
+        border: none;
+    }
+}
+
+@media (min-width: 900px) {
+    nav {
+        flex-direction: row;
+        gap: 1rem;
+        font-size: 1.1rem;
+    }
+    .logo {
+        font-size: 1.75rem;
+    }
+}
+
+main {
+    flex: 1 1 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem; /* в 1лабе было 24px 16px */
+}
+body, html {
+    height: 100%;   
+}
+
+body {
+    background: var(--bgmain); /* задний цвет body, цвет страницы */
+    color: var(--text);
+    font-family: "Inter", sans-serif; /* Для простого текста внутри body используем Inter, Для заголовков Oswald */
+    font-size: var(--font-base); /* Размер шрифта */
+    line-height: 1.5; /* Настраиваем растояние между строчкими текста*/
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3 {
+    font-family: "Oswald", sans-serif;
+    margin-bottom: 18px;
+}
+
+h1 {
+  font-size: 1.75rem; /* ~28px */
+}
+
+h2 {
+  font-size: 1.5rem;  /* ~24px */
+}
+
+h3 {
+  font-size: 1.25rem; /* ~20px */
+}
+
+p {
+    margin-bottom: 0.75rem;
+    color: var(--text);
+}
+
+header {
+    background: linear-gradient(to right, #1fadd8, #91fcbd); /* а почему бы и не градиент */
+    padding:0 1rem; /* отступы, 0 - сверху/снизу, 20 - слева/права */   
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid var(--bgbtnhover);
+    width: 100%;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.logo{
+    font-family: "Oswald", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.burger-checkbox {
+    display: none;
+}
+
+.burger-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+}
+
+.burger-btn span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: var(--textmenucolor);
+    border-radius: 999px;
+    transition: 0.3s;
+}
+
+
+nav {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--bgbtnhover);
+}
+
+.burger-checkbox:checked ~ nav {
+    display: flex;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--textmenucolor);
+    padding: 4px;
+}
+
+nav a.active{
+    background-color: #68e5715f;
+    border-radius: 12px;
+    border: 1px solid rgb(0, 175, 15);
+}
+
+nav a:hover{
+    text-decoration: none;
+    color: var(--textmenuhovercolor);
+    background-color: #8ce4ff;
+    border: 1px solid var(--bgbtnhover);
+    border-radius: 12px;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 0;
+}
+
+.hero-text {
+    max-width: 52rem;
+}
+
+.avatar {
+    display: flex;
+    width: 40vw;
+    max-width: 180px;
+    height: auto;
+    border-radius: 30%;
+    object-fit: cover;
+}
+
+.lead {
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btn {
+    text-decoration: none;
+    display: inline-block;
+    background-color: var(--bgbtn);
+    border-radius: 2vh;
+    color: var(--btn);
+    padding: 4px 12px;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: var(--bgbtnhover);
+    color: var(--btnhover);
+}
+
+figcaption {
+    margin-left: 20px;
+}
+
+footer {
+    background: linear-gradient(to left, #1fadd8, #91fcbd);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-top: 1px solid var(--bgbtnhover);
+}
+
+.lists-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card {
+    background-color: var(--bgcart);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin: 0.75rem;
+    border: 2px solid rgba(5, 120, 128, 0.244);
+    box-shadow: 0 2px 8px rgba(0, 255, 170, 0.56);
+}
+
+.card:hover { /* спросить про пробел между card и hover */
+    transform: translateY(2px);
+    box-shadow: 0 2px 12px rgba(0, 255, 170, 0.985);
+}
+
+.card a {
+    display: block;
+    text-decoration: none;
+    color: rgb(10, 97, 90);
+    border-bottom: 3px solid rgb(5, 85, 38);
+    border-top: 2px solid rgba(2, 121, 70, 0.073);
+    box-shadow: 0 2px 8px rgba(0, 255, 170, 0.56);
+    border-radius: 99px;
+    padding: 0px 12px;
+}
+
+.card a:hover{
+    background-color: var(--bgbtnhover);
+    color: var(--btnhover);   
+}
+
+blockquote {
+    text-align: left;
+    font-style: italic;
+    background-color: rgba(175, 227, 219, 0.586);
+    border-radius:12px 12px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--textmenucolor);
+    margin-top: 24px;
+}
+
+blockquote cite {
+    display: block;
+    margin-top: 8px;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--textmenucolor);
+}
+
+.skills-lyaot{
+    display: flex;
+}
+
+.tbskill {
+    flex: 1; 
+    border-collapse: collapse;
+    background-color: rgba(111, 214, 255, 0.379);
+}
+
+.tbskill thead tr {
+    background: rgba(2, 192, 97, 0.544);
+    font-weight: 600;
+}
+
+.tbskill th, .tbskill td {
+    padding: 1px 8px;
+    text-align: left;
+    border: 1px solid var(--text);
+}
+
+.tbskill tbody tr:nth-child(odd) {
+    background-color: #37ffbc67;
+}
+.purposes {
+    flex: 1;
+    background: rgba(21, 249, 192, 0.59);
+    border-radius: 12px;
+    margin-left: 16px;
+    padding: 16px 24px;
+}
+
+.highlight {
+    background-color: rgba(175, 227, 219, 0.586);
+    padding: 12px 16px;
+    margin-top: 16px;
+    border-radius: 0 12px 0 12px;
+    border-left: 4px solid var(--textmenucolor);
+    border-right: 4px solid var(--textmenucolor);
+}
+
+.myhobby {
+    text-align: center;
+}
+
+.contacts-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.contacts-list li {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 12px;
+    background-color: #66f7dd76;
+    border-radius: 16px;
+}
+
+.feedback-head{
+    text-align: center;
+}
+
+.contact-form label {
+    font-weight: 600;
+    margin-top: 24px;
+    font-size: 20px;
+    text-align: center;
+    color: var(--textmenucolor);
+}
+
+.contact-form input, .contact-form textarea {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    background-color: rgba(79, 243, 255, 0.5);
+    border: 1px solid var(--textmenucolor);
+    border-radius: 8px;
+    padding: 8px 12px;
+    outline-style: none;
+}
+
+.contact-form textarea {
+    resize: none;
+    height: 200px;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    background-color: rgba(177, 240, 250, 0.842);
+}
+
+.contact-form button {
+    align-self: flex-start;
+    padding: 8px 20px;
+    background-color: var(--bgcart);
+    border-radius: 8px;
+    border: none;
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--textmenucolor);
+    cursor: pointer;
+    width: 120px;
+}
+
+.contact-form button:hover {
+    background-color: var(--bgbtnhover);
+    color: var(--btnhover);
+}

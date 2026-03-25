@@ -287,10 +287,14 @@ blockquote cite {
     font-style: normal;
     color: var(--textmenucolor);
 }
-
+.container-skills {
+    display: flex;
+    justify-content: center;
+}
 .skills-lyaot{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 1rem;
 }
 
@@ -298,7 +302,7 @@ blockquote cite {
     flex: 1; 
     border-collapse: collapse;
     background-color: rgba(111, 214, 255, 0.379);
-    margin: 0 0,5rem;
+    margin: 0 0.5rem;
     min-width: 260px;
     max-width: 500px;
 }
@@ -321,7 +325,7 @@ blockquote cite {
     flex: 1;
     background: rgba(21, 249, 192, 0.59);
     border-radius: 12px;
-    margin: 0 0,5rem;
+    margin: 0 0.5rem;
     padding: 16px 24px;
     min-width: 260px;
     max-width: 500px;

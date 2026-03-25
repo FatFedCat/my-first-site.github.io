@@ -231,6 +231,7 @@ footer {
     font-weight: 600;
     padding: 12px 16px;
     border-top: 1px solid var(--bgbtnhover);
+    width: 100%;
 }
 
 .lists-section {
@@ -289,12 +290,17 @@ blockquote cite {
 
 .skills-lyaot{
     display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .tbskill {
     flex: 1; 
     border-collapse: collapse;
     background-color: rgba(111, 214, 255, 0.379);
+    margin: 0 0,5rem;
+    min-width: 260px;
+    max-width: 500px;
 }
 
 .tbskill thead tr {
@@ -315,8 +321,10 @@ blockquote cite {
     flex: 1;
     background: rgba(21, 249, 192, 0.59);
     border-radius: 12px;
-    margin-left: 16px;
+    margin: 0 0,5rem;
     padding: 16px 24px;
+    min-width: 260px;
+    max-width: 500px;
 }
 
 .highlight {

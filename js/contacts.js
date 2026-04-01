@@ -65,20 +65,50 @@ dateInput.addEventListener('input', () => {
     }
 });
 
-/* ── Фото ── */
-document.getElementById('photo-upload').addEventListener('change', function () {
-    const preview = document.getElementById('photo-preview');
+/* ── Фото: сначала модальное окно подтверждения ── */
+const photoInput        = document.getElementById('photo-upload');
+const photoModalOverlay = document.getElementById('photo-modal-overlay');
+const photoModalPreview = document.getElementById('photo-modal-preview');
+const photoPreview      = document.getElementById('photo-preview');
+let pendingPhotoFile    = null;
 
-    if (this.files && this.files[0]) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            preview.src           = e.target.result;
-            preview.style.display = 'block';
-        };
-        reader.readAsDataURL(this.files[0]);
-    } else {
-        preview.style.display = 'none';
-        preview.src           = '';
+const closePhotoModal = () => {
+    photoModalOverlay.classList.remove('open');
+    photoModalPreview.src = '';
+    pendingPhotoFile      = null;
+    photoInput.value      = '';
+};
+
+photoInput.addEventListener('change', function () {
+    if (!this.files || !this.files[0]) return;
+
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+        pendingPhotoFile      = this.files[0];
+        photoModalPreview.src = e.target.result;
+        photoModalOverlay.classList.add('open');
+    };
+
+    reader.readAsDataURL(this.files[0]);
+});
+
+document.getElementById('photo-confirm-btn').addEventListener('click', () => {
+    photoPreview.src           = photoModalPreview.src;
+    photoPreview.style.display = 'block';
+    photoModalOverlay.classList.remove('open');
+    pendingPhotoFile = null;
+});
+
+document.getElementById('photo-cancel-btn').addEventListener('click', closePhotoModal);
+
+photoModalOverlay.addEventListener('click', (e) => {
+    if (e.target === photoModalOverlay) closePhotoModal();
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && photoModalOverlay.classList.contains('open')) {
+        closePhotoModal();
     }
 });
 
@@ -119,9 +149,9 @@ document.getElementById('contact-form').addEventListener('submit', (e) => {
             'Email: '   + emailEl.value
         );
         e.target.reset();
-        document.getElementById('photo-preview').style.display = 'none';
-        document.getElementById('photo-preview').src           = '';
-        fioResult.style.display  = 'none';
-        dateFeedback.textContent = '';
+        photoPreview.style.display = 'none';
+        photoPreview.src           = '';
+        fioResult.style.display    = 'none';
+        dateFeedback.textContent   = '';
     }
 });

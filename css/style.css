@@ -405,9 +405,7 @@ blockquote cite {
     color: var(--btnhover);
 }
 
-/* ════════════════════════════════════════
-   Стили для обновлённой формы contacts.html
-════════════════════════════════════════ */
+/* Стили для обновлённой формы contacts.html */
 
 .field-group {
     display: flex;
@@ -467,4 +465,80 @@ blockquote cite {
     font-size: 0.9rem;
     cursor: pointer;
     background-color: rgba(79, 243, 255, 0.2);
+}
+
+
+
+/*  Модальное окно подтверждения фото */
+.photo-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-modal-overlay.open {
+    display: flex;
+}
+
+.photo-modal {
+    background: var(--bgmain);
+    border: 2px solid var(--textmenucolor);
+    border-radius: 16px;
+    padding: 1.5rem;
+    max-width: 360px;
+    width: 90%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.photo-modal h3 {
+    margin-bottom: 0;
+}
+
+.photo-modal img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 10px;
+    border: 2px solid var(--textmenucolor);
+    object-fit: cover;
+}
+
+.photo-modal-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.photo-modal-buttons button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#photo-confirm-btn {
+    background-color: var(--bgbtn);
+    color: var(--btn);
+}
+
+#photo-confirm-btn:hover {
+    background-color: var(--bgbtnhover);
+    color: var(--btnhover);
+}
+
+#photo-cancel-btn {
+    background-color: rgba(255, 80, 80, 0.2);
+    color: #c0392b;
+}
+
+#photo-cancel-btn:hover {
+    background-color: rgba(255, 80, 80, 0.4);
 }

@@ -367,14 +367,6 @@ blockquote cite {
     text-align: center;
 }
 
-.contact-form label {
-    font-weight: 600;
-    margin-top: 24px;
-    font-size: 20px;
-    text-align: center;
-    color: var(--textmenucolor);
-}
-
 .contact-form input, .contact-form textarea {
     font-family: "Inter", sans-serif;
     font-size: 18px;
@@ -411,4 +403,68 @@ blockquote cite {
 .contact-form button:hover {
     background-color: var(--bgbtnhover);
     color: var(--btnhover);
+}
+
+/* ════════════════════════════════════════
+   Стили для обновлённой формы contacts.html
+════════════════════════════════════════ */
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.field-group label {
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: left;
+    color: var(--textmenucolor);
+    margin-bottom: 4px;
+}
+
+.field-error {
+    display: none;
+    color: #c0392b;
+    font-size: 0.82rem;
+    margin-top: 4px;
+}
+
+.field-feedback {
+    font-size: 0.82rem;
+    margin-top: 4px;
+}
+
+.contact-form input.error,
+.contact-form textarea.error {
+    border-color: #e03d3d;
+    background-color: rgba(255, 80, 80, 0.08);
+}
+
+.fio-result {
+    display: none;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 8px;
+    background: rgba(56, 223, 195, 0.2);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
+#photo-preview {
+    display: none;
+    margin-top: 10px;
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 10px;
+    border: 2px solid var(--textmenucolor);
+    object-fit: cover;
+}
+
+.contact-form input[type="file"] {
+    padding: 6px 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background-color: rgba(79, 243, 255, 0.2);
 }

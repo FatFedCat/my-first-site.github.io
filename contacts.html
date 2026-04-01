@@ -14,29 +14,25 @@
   <header>
     <div class="header-inner">
       <span class="logo">Фёдор Баев</span>
-
       <input type="checkbox" id="burger-toggle" class="burger-checkbox">
-    
       <label for="burger-toggle" class="burger-btn">
         <span></span>
         <span></span>
         <span></span>
       </label>
-
       <nav>
         <a href="index.html">Главная</a>
         <a href="about.html">Обо мне</a>
         <a href="hobbies.html">Хобби</a>
-        <a href="contacts.html"class="active">Контакты</a>
+        <a href="contacts.html" class="active">Контакты</a>
         <a href="skills.html">Навыки</a>
         <a href="tools.html">Инструменты</a>
       </nav>
     </div>
   </header>
-  u
+  da
   <main class="container">
     <h1>Контакты</h1>
-
     <p class="lead">Буду рад пообщаться! Выбери удобный способ связи:</p>
 
     <ul class="contacts-list">
@@ -47,17 +43,55 @@
 
     <h2 class="feedback-head">Форма обратной связи</h2>
 
-    <form class="contact-form" action="#" method="post">
-      <label for="name">Ваше имя</label>
-      <input type="text" id="name" name="name" placeholder="Иван Иванов" />
+    <form class="contact-form" id="contact-form" novalidate>
 
-      <label for="email">Электронная почта</label>
-      <input type="email" id="email" name="email" placeholder="example@mail.com" />
+      <div class="field-group">
+        <label for="fio">ФИО</label>
+        <input type="text" id="fio" name="fio"
+               placeholder="Иванов Иван Иванович" autocomplete="name">
+        <span class="field-error" id="fio-error">Введите ФИО (только буквы и пробелы)</span>
+        <div class="fio-result" id="fio-result">
+          <span>Фамилия: <strong id="res-last">-</strong></span>
+          <span>Имя: <strong id="res-first">-</strong></span>
+          <span>Отчество: <strong id="res-middle">-</strong></span>
+        </div>
+      </div>
 
-      <label for="message">Сообщение</label>
-      <textarea id="message" name="message" rows="5" placeholder="Напишите что-нибудь..."></textarea>
+      <div class="field-group">
+        <label for="phone">Номер телефона</label>
+        <input type="tel" id="phone" name="phone"
+               placeholder="+48 123 456 789" autocomplete="tel">
+        <span class="field-error" id="phone-error">Введите корректный номер телефона</span>
+      </div>
+
+      <div class="field-group">
+        <label for="email">Электронная почта</label>
+        <input type="email" id="email" name="email"
+               placeholder="example@mail.com" autocomplete="email">
+        <span class="field-error" id="email-error">Введите корректный e-mail</span>
+      </div>
+
+      <div class="field-group">
+        <label for="contact-date">Желаемая дата связи</label>
+        <input type="date" id="contact-date" name="contact-date">
+        <span class="field-feedback" id="date-feedback"></span>
+      </div>
+
+      <div class="field-group">
+        <label for="photo-upload">Загрузить фотографию</label>
+        <input type="file" id="photo-upload" name="photo" accept="image/*">
+        <img id="photo-preview" alt="Предпросмотр фото">
+      </div>
+
+      <div class="field-group">
+        <label for="message">Сообщение</label>
+        <textarea id="message" name="message" rows="5"
+                  placeholder="Напишите что-нибудь..."></textarea>
+        <span class="field-error" id="message-error">Введите сообщение (минимум 3 символа)</span>
+      </div>
 
       <button type="submit">Отправить</button>
+
     </form>
   </main>
 
@@ -65,5 +99,6 @@
     <p>&copy; 2026 Фёдор Баев. Все права защищены.</p>
   </footer>
 
+  <script src="js/contacts.js"></script>
 </body>
 </html>

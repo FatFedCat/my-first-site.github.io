@@ -46,5 +46,15 @@ confirm - всплывающее окно в верху, как alert тольк
 // }
 //---------------------------------------
 
+let key = 'key'
+let obj = {
+	[key + '1']: 1,
+	[key + '2']: 2,
+	[key + '3']: 3
+};
+console.log(obj['key2'])
 
-
+let word = 'abcd'
+let b = [1,2,3]
+console.log('a' in word)
+console.log(1 in b)

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Обо мне &mdash; Фёдор</title>
+  <title>Инструменты &mdash; Фёдор</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
       <span class="logo">Фёдор Баев</span>
 
       <input type="checkbox" id="burger-toggle" class="burger-checkbox">
-    
+
       <label for="burger-toggle" class="burger-btn">
         <span></span>
         <span></span>
@@ -30,18 +30,105 @@
         <a href="hobbies.html">Хобби</a>
         <a href="contacts.html">Контакты</a>
         <a href="skills.html">Навыки</a>
-        <a href="tools.html"class="active">Инструменты</a>
+        <a href="tools.html" class="active">Инструменты</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main class="container">
+
+    <section class="tools-section">
+      <h2>📊 Статистика посещений</h2>
+      <div class="visit-banner" id="visit-banner">
+        <p>Вы посетили эту страницу: <strong id="visit-count">—</strong> раз(а)</p>
+        <p>Среднее время на сайте: <strong id="avg-time">—</strong> сек</p>
+      </div>
+    </section>
+
+    <section class="tools-section">
+      <h2>🔢 Калькулятор</h2>
+      <table class="calc-table">
+        <thead>
+          <tr>
+            <th colspan="4" id="calc-display">0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><button class="calc-btn clr" data-action="clear">C</button></td>
+            <td><button class="calc-btn clr" data-action="backspace">⌫</button></td>
+            <td><button class="calc-btn op" data-value="%">%</button></td>
+            <td><button class="calc-btn op" data-value="/">÷</button></td>
+          </tr>
+          <tr>
+            <td><button class="calc-btn" data-value="7">7</button></td>
+            <td><button class="calc-btn" data-value="8">8</button></td>
+            <td><button class="calc-btn" data-value="9">9</button></td>
+            <td><button class="calc-btn op" data-value="*">×</button></td>
+          </tr>
+          <tr>
+            <td><button class="calc-btn" data-value="4">4</button></td>
+            <td><button class="calc-btn" data-value="5">5</button></td>
+            <td><button class="calc-btn" data-value="6">6</button></td>
+            <td><button class="calc-btn op" data-value="-">−</button></td>
+          </tr>
+          <tr>
+            <td><button class="calc-btn" data-value="1">1</button></td>
+            <td><button class="calc-btn" data-value="2">2</button></td>
+            <td><button class="calc-btn" data-value="3">3</button></td>
+            <td><button class="calc-btn op" data-value="+">+</button></td>
+          </tr>
+          <tr>
+            <td><button class="calc-btn" data-action="negate">+/−</button></td>
+            <td><button class="calc-btn" data-value="0">0</button></td>
+            <td><button class="calc-btn" data-value=".">.</button></td>
+            <td><button class="calc-btn eq" data-action="equals">=</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="tools-section">
+      <h2>🔁 Конвертер валют</h2>
+      <div class="converter-row">
+        <div class="converter-field">
+          <label for="conv-amount">Сумма</label>
+          <input type="number" id="conv-amount" value="100" min="0">
+        </div>
+        <div class="converter-field">
+          <label for="conv-from">Из</label>
+          <select id="conv-from">
+            <option value="USD">USD 🇺🇸</option>
+            <option value="EUR">EUR 🇪🇺</option>
+            <option value="PLN">PLN 🇵🇱</option>
+            <option value="RUB">RUB 🇷🇺</option>
+            <option value="BYN">BYN 🇧🇾</option>
+          </select>
+        </div>
+        <div class="converter-field">
+          <label for="conv-to">В</label>
+          <select id="conv-to">
+            <option value="PLN">PLN 🇵🇱</option>
+            <option value="USD">USD 🇺🇸</option>
+            <option value="EUR">EUR 🇪🇺</option>
+            <option value="RUB">RUB 🇷🇺</option>
+            <option value="BYN">BYN 🇧🇾</option>
+          </select>
+        </div>
+        <div class="converter-field converter-field--btn">
+          <label>&nbsp;</label>
+          <button id="conv-btn">Конвертировать</button>
+        </div>
+      </div>
+      <p class="converter-result" id="converter-result"></p>
+    </section>
 
   </main>
 
   <footer>
     <p>&copy; 2026 Фёдор Баев. Все права защищены.</p>
   </footer>
-  <script src="script.js"></script>
+
+  <script src="js/tools.js"></script>
 </body>
 </html>

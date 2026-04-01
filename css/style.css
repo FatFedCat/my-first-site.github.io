@@ -617,9 +617,7 @@ blockquote cite {
     color: var(--btnhover);
 }
 
-/* ════════════════════════════════════════
-   Стили для tools.html
-════════════════════════════════════════ */
+/* Стили для tools.html */
 
 .tools-section {
     margin-top: 2rem;

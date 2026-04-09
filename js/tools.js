@@ -29,51 +29,67 @@ const updateDisplay = () => {
 
 const ops = ['+', '-', '*', '/', '%'];
 
-document.querySelectorAll('.calc-btn').forEach((btn) => {
+querySelectorAll('.calc-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
         const val    = btn.dataset.value;
         const action = btn.dataset.action;
 
-        if (action === 'clear') {
-            calcExpr = '';
+        switch (action) {
+            case 'clear':
+                calcExpr = '';
+                break;
 
-        } else if (action === 'backspace') {
-            calcExpr = calcExpr.slice(0, -1);
+            case 'backspace':
+                calcExpr = calcExpr.slice(0, -1);
+                break;
 
-        } else if (action === 'negate') {
-            const num = parseFloat(calcExpr);
-            if (!isNaN(num)) calcExpr = String(num * -1);
+            case 'negate':
+                const num = parseFloat(calcExpr);
+                if (!isNaN(num)) {
+                    calcExpr = String(num * -1);
+                }
+                break;
 
-        } else if (action === 'equals') {
-            try {
-                const safe   = calcExpr.replace(/[^0-9+\-*/.%()]/g, '');
-                const result = Function('"use strict"; return (' + safe + ')')();
-                calcExpr     = String(parseFloat(result.toFixed(10)));
-            } catch {
-                calcExpr = 'Ошибка';
-            }
+            case 'equals':
+                try {
+                    const safe   = calcExpr.replace(/[^0-9+\-*/.%()]/g, '');
+                    const result = Function('"use strict"; return (' + safe + ')')();
+                    calcExpr     = String(parseFloat(result.toFixed(10)));
+                } catch {
+                    calcExpr = 'Ошибка';
+                }
+                break;
 
-        } else if (val === '.') {
-            const parts = calcExpr.split(/[+\-*/]/);
-            const last  = parts[parts.length - 1];
-            if (!last.includes('.')) calcExpr += '.';
-
-        } else if (ops.includes(val)) {
-            if (calcExpr === '' && val === '-') {
-                calcExpr = '-';
-            } else if (calcExpr !== '' && !ops.includes(calcExpr.slice(-1))) {
-                calcExpr += val;
-            }
-
-        } else {
-            if (calcExpr === '0') calcExpr = val;
-            else calcExpr += val;
+            default:
+                
+                // Если action не указан (или не специальное действие), работаем с val
+                if (val === '.') {
+                    const parts = calcExpr.split(/[+\-*/]/);
+                    const last  = parts[parts.length - 1];
+                    if (!last.includes('.')) {
+                        calcExpr += '.';
+                    }
+                } 
+                else if (ops.includes(val)) {
+                    if (calcExpr === '' && val === '-') {
+                        calcExpr = '-';
+                    } else if (calcExpr !== '' && !ops.includes(calcExpr.slice(-1))) {
+                        calcExpr += val;
+                    }
+                } 
+                else {
+                    if (calcExpr === '0') {
+                        calcExpr = val;
+                    } else {
+                        calcExpr += val;
+                    }
+                }
+                break;
         }
 
         updateDisplay();
     });
 });
-
 
 const rates = { USD: 1, EUR: 0.92, PLN: 4.02, RUB: 90.5, BYN: 3.27 };
 

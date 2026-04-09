@@ -29,7 +29,7 @@ const updateDisplay = () => {
 
 const ops = ['+', '-', '*', '/', '%'];
 
-querySelectorAll('.calc-btn').forEach((btn) => {
+document.querySelectorAll('.calc-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
         const val    = btn.dataset.value;
         const action = btn.dataset.action;
@@ -64,16 +64,20 @@ querySelectorAll('.calc-btn').forEach((btn) => {
                 
                 // Если action не указан (или не специальное действие), работаем с val
                 if (val === '.') {
-                    const parts = calcExpr.split(/[+\-*/]/);
+                    const parts = calcExpr.split(/[+\-*/%]/);
                     const last  = parts[parts.length - 1];
-                    if (!last.includes('.')) {
+                    if (!last.includes('.') && /\d$/.test(calcExpr)) {
                         calcExpr += '.';
                     }
                 } 
                 else if (ops.includes(val)) {
                     if (calcExpr === '' && val === '-') {
                         calcExpr = '-';
-                    } else if (calcExpr !== '' && !ops.includes(calcExpr.slice(-1))) {
+                    } else if (
+                        calcExpr !== '' &&
+                        !ops.includes(calcExpr.slice(-1)) &&
+                        calcExpr.slice(-1) !== '.'
+                    ) {
                         calcExpr += val;
                     }
                 } 

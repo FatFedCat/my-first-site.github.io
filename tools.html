@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-page="tools">
 
   <header>
     <div class="header-inner">
@@ -18,7 +18,7 @@
 
       <input type="checkbox" id="burger-toggle" class="burger-checkbox">
 
-      <label for="burger-toggle" class="burger-btn">
+      <label for="burger-toggle" class="burger-btn" aria-label="Открыть меню">
         <span></span>
         <span></span>
         <span></span>
@@ -123,14 +123,39 @@
       <p class="converter-result" id="converter-result"></p>
     </section>
 
+    <section class="tools-section">
+      <h2>📋 Таблица пользователей (API)</h2>
+      <p class="lead">Данные загружаются через <code>fetch</code>. Можно фильтровать и сортировать.</p>
+
+      <div class="table-controls">
+        <label class="table-controls__field">
+          <span>Фильтр по имени</span>
+          <input id="users-filter" type="search" placeholder="Введите имя..." autocomplete="off">
+        </label>
+        <label class="table-controls__field">
+          <span>Сортировка</span>
+          <select id="users-sort">
+            <option value="name:asc">Имя (А→Я)</option>
+            <option value="name:desc">Имя (Я→А)</option>
+            <option value="email:asc">Email (А→Я)</option>
+            <option value="email:desc">Email (Я→А)</option>
+            <option value="city:asc">Город (А→Я)</option>
+            <option value="city:desc">Город (Я→А)</option>
+          </select>
+        </label>
+        <button id="users-reload" class="table-controls__btn" type="button">Обновить</button>
+      </div>
+
+      <div id="users-table"></div>
+    </section>
+
   </main>
 
   <footer>
     <p>&copy; 2026 Фёдор Баев. Все права защищены.</p>
   </footer>
 
-  <script src="js/tools.js"></script>
-  <script src="js/script.js"></script>
+  <script type="module" src="js/main.js"></script>
 
 </body>
 </html>

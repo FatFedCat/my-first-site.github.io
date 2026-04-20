@@ -10,14 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-page="hobbies">
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo">Фёдор Баев</a>
 
       <input type="checkbox" id="burger-toggle" class="burger-checkbox">
-    
-      <label for="burger-toggle" class="burger-btn">
+
+      <label for="burger-toggle" class="burger-btn" aria-label="Открыть меню">
         <span></span>
         <span></span>
         <span></span>
@@ -26,57 +26,38 @@
       <nav>
         <a href="index.html">Главная</a>
         <a href="about.html">Обо мне</a>
-        <a href="hobbies.html"class="active">Хобби</a>
+        <a href="hobbies.html" class="active">Хобби</a>
         <a href="contacts.html">Контакты</a>
         <a href="skills.html">Навыки</a>
         <a href="tools.html">Инструменты</a>
       </nav>
     </div>
   </header>
-  a
   <main class="container">
     <h1 class="myhobby">Мои хобби</h1>
-
-    <div class="cards-grid">
-
-      <div class="card">
-        <h2>🎸 Музыка</h2>
-        <p>Музыка — это моя отдушина. Люблю как <strong>слушать</strong>, так и <strong>играть</strong>. Освоил гитару на базовом уровне, играю на фортепиано и стайлофоне.</p>
-        <ul>
-          <li>Гитара &mdash; базовый уровень</li>
-          <li>Фортепиано</li>
-          <li>Стайлофон</li>
-          <li>Жанр? Слушаю всё, что нравится &mdash; недомеломан 🎵</li>
-        </ul>
+    <section class="cards-filters" aria-label="Фильтры хобби">
+      <div class="cards-filters__row">
+        <label class="cards-filters__field">
+          <span>Поиск</span>
+          <input id="hobby-search" type="search" placeholder="Например: музыка, Arduino..." autocomplete="off">
+        </label>
+        <label class="cards-filters__field">
+          <span>Технология</span>
+          <select id="hobby-tech">
+            <option value="">Все</option>
+          </select>
+        </label>
       </div>
+      <p class="cards-filters__meta" id="hobby-meta"></p>
+    </section>
 
-      <div class="card">
-        <h2>🍳 Кулинария</h2>
-        <p>Изначально учился на повара, получил <strong>корочки 3 разряда</strong>. Когда понял, что база есть &mdash; решил, что этого достаточно для себя и любимой.</p>
-        <ul>
-          <li>Повар 3 разряда &mdash; официально</li>
-          <li>Люблю экспериментировать с рецептами</li>
-          <li>Готовлю для себя и близких</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>🤖 Робототехника</h2>
-        <p>Занимался робототехникой <strong>2,5 года</strong>, участвовал в соревнованиях. Однажды робот сошёл с трассы и разбился &mdash; но любовь к <em>Arduino и пайке</em> осталась навсегда.</p>
-        <ul>
-          <li>Arduino &mdash; программирование и сборка</li>
-          <li>Пайка электронных компонентов</li>
-          <li>Участие в соревнованиях</li>
-          <li>Роботостроение как хобби</li>
-        </ul>
-      </div>
-
-    </div>
+    <div class="cards-grid" id="hobby-cards"></div>
   </main>
 
   <footer>
     <p>&copy; 2026 Фёдор Баен. Все права защищены.</p>
   </footer>
 
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

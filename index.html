@@ -10,21 +10,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-page="home">
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo">Фёдор Баев</a>
 
       <input type="checkbox" id="burger-toggle" class="burger-checkbox">
-    
-      <label for="burger-toggle" class="burger-btn">
+
+      <label for="burger-toggle" class="burger-btn" aria-label="Открыть меню">
         <span></span>
         <span></span>
         <span></span>
       </label>
 
       <nav>
-        <a href="index.html"class="active">Главная</a>
+        <a href="index.html" class="active">Главная</a>
         <a href="about.html">Обо мне</a>
         <a href="hobbies.html">Хобби</a>
         <a href="contacts.html">Контакты</a>
@@ -32,8 +32,7 @@
         <a href="tools.html">Инструменты</a>
       </nav>
     </div>
-  </header>s
-  u
+  </header>
   <main class="container">
 
     <section class="hero">
@@ -98,7 +97,7 @@
     </div>
   </div>
 
-  <script src="js/index.js"></script>
+  <script type="module" src="js/main.js"></script>
 
 </body>
 </html>

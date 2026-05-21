@@ -15,4 +15,3 @@ export class ContactsPage extends BasePage {
     this.contactsForm?.bindEvents();
   }
 }
-

@@ -1,10 +1,10 @@
-* {
-    margin: 0; /* убираем внешние отступы */
-    padding: 0; /* убираем внутренние отступы */
-    box-sizing: border-box; /* определяем как считать ширину и высоту */
+﻿* {
+    margin: 0; /* ╤Г╨▒╨╕╤А╨░╨╡╨╝ ╨▓╨╜╨╡╤И╨╜╨╕╨╡ ╨╛╤В╤Б╤В╤Г╨┐╤Л */
+    padding: 0; /* ╤Г╨▒╨╕╤А╨░╨╡╨╝ ╨▓╨╜╤Г╤В╤А╨╡╨╜╨╜╨╕╨╡ ╨╛╤В╤Б╤В╤Г╨┐╤Л */
+    box-sizing: border-box; /* ╨╛╨┐╤А╨╡╨┤╨╡╨╗╤П╨╡╨╝ ╨║╨░╨║ ╤Б╤З╨╕╤В╨░╤В╤М ╤И╨╕╤А╨╕╨╜╤Г ╨╕ ╨▓╤Л╤Б╨╛╤В╤Г */
 }
 :root {
-    --text: black; /* задаём постоянную для текста */
+    --text: black; /* ╨╖╨░╨┤╨░╤С╨╝ ╨┐╨╛╤Б╤В╨╛╤П╨╜╨╜╤Г╤О ╨┤╨╗╤П ╤В╨╡╨║╤Б╤В╨░ */
     --textmenucolor: rgb(3, 113, 121);
     --textmenuhovercolor: rgb(10, 155, 252);
     --bgmain: rgb(207, 253, 245);
@@ -14,10 +14,10 @@
     --btnhover: rgb(200, 255, 237) ;
     --bgcart: rgba(56, 223, 195, 0.35);
 
-    --font-base: 16px;      /* базовый размер текста */
-    --space-s: 0.5rem;      /* маленький отступ */
-    --space-m: 1rem;        /* средний отступ */
-    --space-l: 1.5rem;      /* большой отступ */
+    --font-base: 16px;      /* ╨▒╨░╨╖╨╛╨▓╤Л╨╣ ╤А╨░╨╖╨╝╨╡╤А ╤В╨╡╨║╤Б╤В╨░ */
+    --space-s: 0.5rem;      /* ╨╝╨░╨╗╨╡╨╜╤М╨║╨╕╨╣ ╨╛╤В╤Б╤В╤Г╨┐ */
+    --space-m: 1rem;        /* ╤Б╤А╨╡╨┤╨╜╨╕╨╣ ╨╛╤В╤Б╤В╤Г╨┐ */
+    --space-l: 1.5rem;      /* ╨▒╨╛╨╗╤М╤И╨╛╨╣ ╨╛╤В╤Б╤В╤Г╨┐ */
 }
 
 @media (min-width: 600px) {
@@ -52,18 +52,18 @@ main {
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 1.5rem 1rem; /* в 1лабе было 24px 16px */
+    padding: 1.5rem 1rem; /* ╨▓ 1╨╗╨░╨▒╨╡ ╨▒╤Л╨╗╨╛ 24px 16px */
 }
 body, html {
     height: 100%;   
 }
 
 body {
-    background: var(--bgmain); /* задний цвет body, цвет страницы */
+    background: var(--bgmain); /* ╨╖╨░╨┤╨╜╨╕╨╣ ╤Ж╨▓╨╡╤В body, ╤Ж╨▓╨╡╤В ╤Б╤В╤А╨░╨╜╨╕╤Ж╤Л */
     color: var(--text);
-    font-family: "Inter", sans-serif; /* Для простого текста внутри body используем Inter, Для заголовков Oswald */
-    font-size: var(--font-base); /* Размер шрифта */
-    line-height: 1.5; /* Настраиваем растояние между строчкими текста*/
+    font-family: "Inter", sans-serif; /* ╨Ф╨╗╤П ╨┐╤А╨╛╤Б╤В╨╛╨│╨╛ ╤В╨╡╨║╤Б╤В╨░ ╨▓╨╜╤Г╤В╤А╨╕ body ╨╕╤Б╨┐╨╛╨╗╤М╨╖╤Г╨╡╨╝ Inter, ╨Ф╨╗╤П ╨╖╨░╨│╨╛╨╗╨╛╨▓╨║╨╛╨▓ Oswald */
+    font-size: var(--font-base); /* ╨а╨░╨╖╨╝╨╡╤А ╤И╤А╨╕╤Д╤В╨░ */
+    line-height: 1.5; /* ╨Э╨░╤Б╤В╤А╨░╨╕╨▓╨░╨╡╨╝ ╤А╨░╤Б╤В╨╛╤П╨╜╨╕╨╡ ╨╝╨╡╨╢╨┤╤Г ╤Б╤В╤А╨╛╤З╨║╨╕╨╝╨╕ ╤В╨╡╨║╤Б╤В╨░*/
     display: flex;
     flex-direction: column;
 }
@@ -91,8 +91,8 @@ p {
 }
 
 header {
-    background: linear-gradient(to right, #1fadd8, #91fcbd); /* а почему бы и не градиент */
-    padding:0 1rem; /* отступы, 0 - сверху/снизу, 20 - слева/права */   
+    background: linear-gradient(to right, #1fadd8, #91fcbd); /* ╨░ ╨┐╨╛╤З╨╡╨╝╤Г ╨▒╤Л ╨╕ ╨╜╨╡ ╨│╤А╨░╨┤╨╕╨╡╨╜╤В */
+    padding:0 1rem; /* ╨╛╤В╤Б╤В╤Г╨┐╤Л, 0 - ╤Б╨▓╨╡╤А╤Е╤Г/╤Б╨╜╨╕╨╖╤Г, 20 - ╤Б╨╗╨╡╨▓╨░/╨┐╤А╨░╨▓╨░ */   
     z-index: 10;
     position: fixed;
     top: 0;
@@ -250,7 +250,7 @@ footer {
     box-shadow: 0 2px 8px rgba(0, 255, 170, 0.56);
 }
 
-.card:hover { /* спросить про пробел между card и hover */
+.card:hover { /* ╤Б╨┐╤А╨╛╤Б╨╕╤В╤М ╨┐╤А╨╛ ╨┐╤А╨╛╨▒╨╡╨╗ ╨╝╨╡╨╢╨┤╤Г card ╨╕ hover */
     transform: translateY(2px);
     box-shadow: 0 2px 12px rgba(0, 255, 170, 0.985);
 }
@@ -407,7 +407,7 @@ blockquote cite {
     color: var(--btnhover);
 }
 
-/* Стили для обновлённой формы contacts.html */
+/* ╨б╤В╨╕╨╗╨╕ ╨┤╨╗╤П ╨╛╨▒╨╜╨╛╨▓╨╗╤С╨╜╨╜╨╛╨╣ ╤Д╨╛╤А╨╝╤Л contacts.html */
 
 .field-group {
     display: flex;
@@ -471,7 +471,7 @@ blockquote cite {
 
 
 
-/*  Модальное окно подтверждения фото */
+/*  ╨Ь╨╛╨┤╨░╨╗╤М╨╜╨╛╨╡ ╨╛╨║╨╜╨╛ ╨┐╨╛╨┤╤В╨▓╨╡╤А╨╢╨┤╨╡╨╜╨╕╤П ╤Д╨╛╤В╨╛ */
 .photo-modal-overlay {
     display: none;
     position: fixed;
@@ -546,7 +546,7 @@ blockquote cite {
 }
 
 
-/* Модальное окно приветствия (index.html) */
+/* ╨Ь╨╛╨┤╨░╨╗╤М╨╜╨╛╨╡ ╨╛╨║╨╜╨╛ ╨┐╤А╨╕╨▓╨╡╤В╤Б╤В╨▓╨╕╤П (index.html) */
 .greeting-modal-overlay {
     display: none;
     position: fixed;
@@ -619,7 +619,7 @@ blockquote cite {
     color: var(--btnhover);
 }
 
-/* Стили для tools.html */
+/* ╨б╤В╨╕╨╗╨╕ ╨┤╨╗╤П tools.html */
 
 .tools-section {
     margin-top: 2rem;
@@ -764,7 +764,7 @@ blockquote cite {
     color: var(--textmenucolor);
 }
 
-/* Фильтры карточек (hobbies.html) */
+/* ╨д╨╕╨╗╤М╤В╤А╤Л ╨║╨░╤А╤В╨╛╤З╨╡╨║ (hobbies.html) */
 .cards-filters {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -829,7 +829,7 @@ blockquote cite {
     font-weight: 600;
 }
 
-/* Таблица API (tools.html) */
+/* ╨в╨░╨▒╨╗╨╕╤Ж╨░ API (tools.html) */
 .table-controls {
     display: flex;
     flex-wrap: wrap;
@@ -909,3 +909,20 @@ blockquote cite {
     background: rgba(2, 192, 97, 0.35);
     font-weight: 700;
 }
+
+.data-table thead th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.data-table thead th.sortable:hover {
+    background: rgba(2, 192, 97, 0.55);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+

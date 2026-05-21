@@ -14,4 +14,3 @@ export class BasePage {
   // eslint-disable-next-line class-methods-use-this
   bindEvents() {}
 }
-

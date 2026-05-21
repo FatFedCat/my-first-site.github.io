@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
+фикс шапки
 <body data-page="contacts">
   <header>
     <div class="header-inner">
@@ -27,6 +28,8 @@
         <a href="contacts.html" class="active">Контакты</a>
         <a href="skills.html">Навыки</a>
         <a href="tools.html">Инструменты</a>
+        <a href="work.html">Проекты</a>
+        <a href="api-table.html">API</a>
       </nav>
     </div>
   </header>
@@ -98,16 +101,17 @@
     <p>&copy; 2026 Фёдор Баев. Все права защищены.</p>
   </footer>
 
-<div class="photo-modal-overlay" id="photo-modal-overlay">
-  <div class="photo-modal">
-    <h3>Подтвердите выбор фото</h3>
-    <img id="photo-modal-preview" alt="Предпросмотр">
-    <div class="photo-modal-buttons">
-      <button id="photo-confirm-btn">✅Подтвердить</button>
-      <button id="photo-cancel-btn">❌Отмена</button>
+  <div class="photo-modal-overlay" id="photo-modal-overlay">
+    <div class="photo-modal">
+      <h3>Подтвердите выбор фото</h3>
+      <img id="photo-modal-preview" alt="Предпросмотр">
+      <div class="photo-modal-buttons">
+        <button id="photo-confirm-btn">✅ Подтвердить</button>
+        <button id="photo-cancel-btn">❌ Отмена</button>
+      </div>
     </div>
   </div>
-</div>
+
   <script type="module" src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub API &mdash; Фёдор</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+фикс шапки
+<body data-page="api">
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">Фёдор Баев</a>
+
+      <input type="checkbox" id="burger-toggle" class="burger-checkbox">
+
+      <label for="burger-toggle" class="burger-btn" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav>
+        <a href="index.html">Главная</a>
+        <a href="about.html">Обо мне</a>
+        <a href="hobbies.html">Хобби</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="skills.html">Навыки</a>
+        <a href="tools.html">Инструменты</a>
+        <a href="work.html">Проекты</a>
+        <a href="api-table.html" class="active">API</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>GitHub Репозитории</h1>
+    <p class="lead">
+      Введите имя пользователя GitHub — данные загрузятся через <code>fetch</code>.<br>
+      Таблицу можно фильтровать по названию и языку, а заголовки кликабельны для сортировки.
+    </p>
+
+    <!-- Поиск пользователя -->
+    <section class="table-controls">
+      <label class="table-controls__field">
+        <span>Пользователь GitHub</span>
+        <input id="gh-user" type="text" placeholder="Например: torvalds" value="torvalds" autocomplete="off">
+      </label>
+      <button id="gh-load" class="table-controls__btn" type="button">Загрузить</button>
+    </section>
+
+    <div id="gh-status"></div>
+
+    <!-- Фильтры таблицы (появляются после загрузки) -->
+    <section class="table-controls" id="gh-filters" style="display:none">
+      <label class="table-controls__field">
+        <span>Поиск по названию</span>
+        <input id="gh-search" type="search" placeholder="Поиск..." autocomplete="off">
+      </label>
+      <label class="table-controls__field">
+        <span>Язык</span>
+        <select id="gh-lang">
+          <option value="">Все языки</option>
+        </select>
+      </label>
+    </section>
+
+    <p class="table-meta" id="gh-meta"></p>
+
+    <div class="table-wrap" id="gh-wrap" style="display:none">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th class="sortable" data-key="name">Название ↕</th>
+            <th>Описание</th>
+            <th class="sortable" data-key="language">Язык ↕</th>
+            <th class="sortable" data-key="stargazers_count">Звёзды ↕</th>
+            <th class="sortable" data-key="updated_at">Обновлён ↕</th>
+          </tr>
+        </thead>
+        <tbody id="gh-tbody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Фёдор Баев. Все права защищены.</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

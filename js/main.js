@@ -4,6 +4,8 @@ import { HobbiesPage } from './pages/HobbiesPage.js';
 import { ContactsPage } from './pages/ContactsPage.js';
 import { SkillsPage } from './pages/SkillsPage.js';
 import { ToolsPage } from './pages/ToolsPage.js';
+import { WorkPage } from './pages/WorkPage.js';
+import { ApiTablePage } from './pages/ApiTablePage.js';
 
 const PAGES = {
   home: HomePage,
@@ -12,6 +14,8 @@ const PAGES = {
   contacts: ContactsPage,
   skills: SkillsPage,
   tools: ToolsPage,
+  work: WorkPage,
+  api: ApiTablePage,
 };
 
 function getPageKey() {
